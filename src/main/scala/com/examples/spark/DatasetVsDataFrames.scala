@@ -49,6 +49,10 @@ object DatasetVsDataFrames {
     val spark = SparkSession
       .builder()
       .master("spark://localhost:7077")
+      .config("spark.driver.bindAddress", "127.0.0.1")
+      .config("spark.driver.host", "127.0.0.1")
+      .config("spark.memory.offHeap.enabled", true)
+      .config("spark.memory.offHeap.size", "1g")
       .appName("DatasetsVsDataframes")
       .getOrCreate()
 
